@@ -2,6 +2,7 @@ package com.bw.myutil;
 
 import androidx.lifecycle.LiveData;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;

@@ -5,8 +5,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -21,7 +19,7 @@ class LiveDataCallAdapterFactory extends CallAdapter.Factory {
     @SuppressWarnings("ClassGetClass")
     @Nullable
     @Override
-    public CallAdapter<?, ?> get(@NotNull Type returnType, @NotNull Annotation[] annotations, @NotNull Retrofit retrofit) {
+    public CallAdapter<?, ?> get( Type returnType,  Annotation[] annotations,  Retrofit retrofit) {
         if (getRawType(returnType) != LiveData.class) {
             return null;
         }

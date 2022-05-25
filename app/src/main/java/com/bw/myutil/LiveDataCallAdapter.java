@@ -3,8 +3,6 @@ package com.bw.myutil;
 import androidx.lifecycle.LiveData;
 
 
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -24,15 +22,13 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
         this.isApiResponse = isApiResponse;
     }
 
-    @NotNull
     @Override
     public Type responseType() {
         return mResponseType;
     }
 
-    @NotNull
     @Override
-    public LiveData<T> adapt(@NotNull final Call<T> call) {
+    public LiveData<T> adapt( final Call<T> call) {
         return new MyLiveData<>(call, isApiResponse);
     }
 
@@ -54,13 +50,13 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
             if (stared.compareAndSet(false, true)) {
                 call.enqueue(new Callback<T>() {
                     @Override
-                    public void onResponse(@NotNull Call<T> call, @NotNull Response<T> response) {
+                    public void onResponse( Call<T> call,Response<T> response) {
                         T body = response.body();
                         postValue(body);
                     }
 
                     @Override
-                    public void onFailure(@NotNull Call<T> call, @NotNull Throwable t) {
+                    public void onFailure(Call<T> call, Throwable t) {
                         if (isApiResponse) {
                             //noinspection unchecked
                             postValue((T) new ApiResponse<>(ApiResponse.CODE_ERROR, t.getMessage()));

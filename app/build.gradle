@@ -1,17 +1,15 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.qhyan'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "com.bw.myutil"
-        minSdkVersion 27
-        targetSdkVersion 31
+//        applicationId "com.bw.myutil"
+        minSdkVersion 24
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
